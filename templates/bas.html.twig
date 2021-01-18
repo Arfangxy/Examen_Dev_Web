@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="/home/ubuntu/Téléchargements/bootstrap-4.4.1/scss/bootstrap.css" >
+        {{ include('inc/navbar.html.twig')}}
+ 
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+    <div class="container">
+      {% block body %}{% endblock %}
+    </div>
+       
+        <script src="/home/ubuntu/Téléchargements/bootstrap-4.4.1/site/docs/4.4/assets/js/vendor/jquery.slim.min.js" ></script>
+        <script src="/home/ubuntu/Téléchargements/bootstrap-4.4.1/js/tests/unit/popover.min.js" ></script>
+        <script src="/home/ubuntu/Téléchargements/bootstrap-4.4.1/dist/js/bootstrap.min.js"></script>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

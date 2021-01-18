@@ -1,0 +1,287 @@
+
+{% extends 'base.html.twig' %}
+{% block title%} Liste des produits{% endblock %}
+{% block body %}
+{{ form_start(form) }}
+<div class="form-row align-items-end" >
+<div class="col">
+{{ form_row(form.nom) }}
+</div>
+<div class="col">
+<div class="form-group">
+<button type="submit" class="btn btn-success">Rechercher</button>
+</div>
+</div>
+</div>
+{{ form_end(form) }}
+
+{% if articles %}
+<table id="articles" class="table table-striped">
+<thead>
+<tr>
+<th>Nom</th>
+<th>Prix</th>
+<th>Catégorie</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody>
+
+
+
+{% for article in articles %}
+
+<tr>
+<td>{{ article.Nom }}</td>
+<td>{{ article.Prix }}</td>
+<td>{{ article.category.titre }}</td>
+<td>
+<a href="/{{ article.id}}" class="btn btn-dark">Détails</a>
+<!--
+<a href="/produits/edit/{{ article.id }}" class="btn btn-dark">Modifier</a>
+<a href="/produits/delete/{{ article.id }}" class="btn btn-danger"onclick="return confirm('Etes-vous sûr de supprimer cet article?');">Supprimer</a>
+-->
+</td>
+</tr>
+ {% if article.Nom=="Robe"%} 
+ 
+    <tr id="pictures"> <!-- Là où il faut afficher les images. -->
+      <td style="width:134px; height:150px;"><img src="images/robe.jpg"     width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/></td>
+      <td style="width:133px; height:150px;"><img src="images/robe1.jpg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/></td>
+      <td style="width:133px; height:150px;"><img src="images/robe2.jpg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/></td></br>
+    </tr>
+    <tr id="pictures">
+      <td style="width:133px; height:150px;"><img src="images/robe3.jpg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/></td>
+      <td style="width:133px; height:150px;"><img src="images/robe4.jpg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/></td>
+      <td style="width:134px; height:150px;"><img src="images/robe5.jpg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/></td>
+    </tr>
+    {% elseif article.Nom=="taille basse"%}
+    <tr id="pictures"> <!-- Là où il faut afficher les images. -->
+        <td style="width:134px; height:150px;"><img src="images/taille1.jpg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/></td>
+        <td style="width:133px; height:150px;"><img src="images/taille2.jpg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/></td>
+        <td style="width:133px; height:150px;"><img src="images/taille3.jpg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/></td></br>
+    </tr>
+    <tr id="pictures">   
+        <td style="width:133px; height:150px;"><img src="images/taille4.jpg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/></td>
+        <td style="width:133px; height:150px;"><img src="images/taille5.jpg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/></td>
+        <td style="width:134px; height:150px;"><img src="images/taille1.jpg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/></td>
+    </tr>
+    {% elseif article.Nom=="Couple"%}
+    <tr id="pictures"> <!-- Là où il faut afficher les images. -->
+        <td style="width:134px; height:150px;"><img src="images/couple1.jpg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>40000 francs</td>
+        <td style="width:133px; height:150px;"><img src="images/couple2.jpg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>40000 francs</td>
+        <td style="width:133px; height:150px;"><img src="images/couple3.jpg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>40000 francs</td><br/>
+    </tr>
+    <tr id="pictures">
+        <td style="width:133px; height:150px;"><img src="images/couple4.jpg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>40000 francs</td>
+        <td style="width:133px; height:150px;"><img src="images/couple5.jpg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>40000 francs</td>
+        <td style="width:134px; height:150px;"><img src="images/couple1.jpg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>40000 francs</td>
+    </tr>
+    {% elseif article.Nom=="Homme"%}
+    <tr id="pictures"> <!-- Là où il faut afficher les images. -->
+        <td style="width:134px; height:150px;"><img src="images/homme1.jpg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>40000 francs</td>
+        <td style="width:133px; height:150px;"><img src="images/homme2.jpg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>40000 francs</td>
+        <td style="width:133px; height:150px;"><img src="images/homme3.jpg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>40000 francs</td></br>
+    </tr>
+    <tr id="pictures">
+        <td style="width:133px; height:150px;"><img src="images/homme4.jpg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>40000 francs</td>
+        <td style="width:133px; height:150px;"><img src="images/homme5.jpg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>40000 francs</td>
+        <td style="width:134px; height:150px;"><img src="images/homme2.jpeg"   width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>40000 francs</td>
+    </tr>
+    {% elseif article.Nom=="Taille Gabonaise"%}
+    <tr id="pictures"> <!-- Là où il faut afficher les images. -->
+        <td style="width:134px; height:150px;"><img src="images/gabon1.jpeg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td>
+        <td style="width:133px; height:150px;"><img src="images/gabon2.jpeg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td>
+        <td style="width:133px; height:150px;"><img src="images/gabon3.jpeg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td></br>
+    </tr>
+    <tr id="pictures">
+        <td style="width:133px; height:150px;"><img src="images/gabon4.jpeg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td>
+        <td style="width:133px; height:150px;"><img src="images/gabon6.jpeg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td>
+        <td style="width:134px; height:150px;"><img src="images/gabon.jpeg"   width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td>
+    </tr>
+    {% elseif article.Nom=="Robe de soirée"%}
+    <tr id="pictures"> <!-- Là où il faut afficher les images. -->
+        <td style="width:134px; height:150px;"><img src="images/soir1.jpeg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td>
+        <td style="width:133px; height:150px;"><img src="images/soir2.jpeg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td>
+        <td style="width:133px; height:150px;"><img src="images/soir3.jpeg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td></br>
+    </tr>
+    <tr id="pictures">
+        <td style="width:133px; height:150px;"><img src="images/soir4.jpeg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td>
+        <td style="width:133px; height:150px;"><img src="images/soir6.jpeg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td>
+        <td style="width:134px; height:150px;"><img src="images/soir.jpeg"   width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td>
+    </tr>
+    <tr id="pictures">
+        <td style="width:133px; height:150px;"><img src="images/soir5.jpeg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td>
+        <td style="width:133px; height:150px;"><img src="images/soir7.jpeg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td>
+        <td style="width:134px; height:150px;"><img src="images/soir1.jpeg"   width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td>
+    </tr>
+    {% elseif article.Nom=="Mbasin"%}
+    <tr id="pictures"> <!-- Là où il faut afficher les images. -->
+        <td style="width:134px; height:150px;"><img src="images/basin1.jpeg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td>
+        <td style="width:133px; height:150px;"><img src="images/basin2.jpeg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td>
+        <td style="width:133px; height:150px;"><img src="images/basin3.jpeg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td></br>
+    </tr>
+    <tr id="pictures">
+        <td style="width:133px; height:150px;"><img src="images/basin4.jpeg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td>
+        <td style="width:133px; height:150px;"><img src="images/basin5.jpeg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td>
+        <td style="width:134px; height:150px;"><img src="images/basin.jpeg"   width="300" height="350"onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td>
+    </tr>
+    {% elseif article.Nom=="Choix"%}
+    <tr id="pictures"> <!-- Là où il faut afficher les images. -->
+        <td style="width:134px; height:150px;"><img src="images/choi1.jpeg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td>
+        <td style="width:133px; height:150px;"><img src="images/choi2.jpeg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td>
+        <td style="width:133px; height:150px;"><img src="images/choi3.jpeg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td></br>
+    </tr>
+    <tr id="pictures">
+        <td style="width:133px; height:150px;"><img src="images/choi4.jpeg"    width="300" height="350"onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td>
+        <td style="width:133px; height:150px;"><img src="images/choi5.jpeg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td>
+        <td style="width:134px; height:150px;"><img src="images/choi.jpeg"   width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td>
+    </tr>
+    {% elseif article.Nom=="Brodé"%}
+    <tr id="pictures"> <!-- Là où il faut afficher les images. -->
+        <td style="width:134px; height:150px;"><img src="images/bro1.jpeg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td>
+        <td style="width:133px; height:150px;"><img src="images/bro2.jpeg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td>
+        <td style="width:133px; height:150px;"><img src="images/bro3.jpeg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td></br>
+    </tr>
+    <tr id="pictures">
+        <td style="width:133px; height:150px;"><img src="images/bro4.jpeg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td>
+        <td style="width:133px; height:150px;"><img src="images/bro5.jpeg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td>
+        <td style="width:134px; height:150px;"><img src="images/bro.jpeg"   width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td>
+    </tr>
+    {% elseif article.Nom=="Diezner"%}
+    <tr id="pictures"> <!-- Là où il faut afficher les images. -->
+        <td style="width:134px; height:150px;"><img src="images/djez1.jpeg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td>
+        <td style="width:133px; height:150px;"><img src="images/djez2.jpeg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td>
+        <td style="width:133px; height:150px;"><img src="images/djez3.jpeg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td></br>
+    </tr>
+    <tr id="pictures">
+        <td style="width:133px; height:150px;"><img src="images/djez4.jpeg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td>
+        <td style="width:133px; height:150px;"><img src="images/djez5.jpeg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td>
+        <td style="width:134px; height:150px;"><img src="images/djez.jpeg"   width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td>
+    </tr>
+    {% elseif article.Nom=="Voile"%}
+    <tr id="pictures"> <!-- Là où il faut afficher les images. -->
+        <td style="width:134px; height:150px;"><img src="images/voil1.jpeg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td>
+        <td style="width:133px; height:150px;"><img src="images/voil2.jpeg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td>
+        <td style="width:133px; height:150px;"><img src="images/voil3.jpeg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td></br>
+    </tr>
+    <tr id="pictures">
+        <td style="width:133px; height:150px;"><img src="images/voil4.jpeg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td>
+        <td style="width:133px; height:150px;"><img src="images/voil5.jpeg"    width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td>
+        <td style="width:134px; height:150px;"><img src="images/voil.jpeg"   width="300" height="350" onmouseover="this.width=500; this.heigth=550 ;" onmouseout="this.width=300; this.heigth=350 ;"/>150000 francs</td>
+        
+
+    </tr>
+    {% endif %}
+
+{% endfor %}
+
+</tbody>
+</table>
+{% else %}
+<style>
+#menu-accordeon {
+    padding:0;
+    margin:0;
+    list-style:none;
+    text-align: center;
+    width: 180px;
+  }
+  #menu-accordeon ul {
+    padding:0;
+    margin:0;
+    list-style:none;
+    text-align: center;
+  }
+  #menu-accordeon li {
+     background-color:#000033   ; 
+     background-image:-webkit-linear-gradient(top, #000033    0%,#000033   100%);
+     background-image: linear-gradient(to bottom, #000033    0%,#000033    100%);
+     border-radius: 6px;
+     margin-bottom:2px;
+     box-shadow: 3px 3px 3px #999;
+     border:solid 1px #333A40
+  }
+  #menu-accordeon li li {
+     max-height:0;
+     overflow: hidden;
+     transition: all .5s;
+     border-radius:0;
+     background: #444;
+     box-shadow: none;
+     border:none;
+     margin:0
+  }
+  #menu-accordeon a {
+    display:block;
+    text-decoration: none;
+    color: #fff;
+    padding: 8px 0;
+    font-family: verdana;
+    font-size:1.2em
+  }
+  #menu-accordeon ul li a, #menu-accordeon li:hover li a {
+    font-size:1em
+  }
+  #menu-accordeon li:hover {
+     background: #729EBF
+  }
+  #menu-accordeon li li:hover {
+     background: #999;
+  }
+  #menu-accordeon ul li:last-child {
+     border-radius: 0 0 6px 6px;
+     border:none;
+  }
+  #menu-accordeon li:hover li {
+    max-height: 15em;
+  }
+  </style>
+<div align="left">
+    <h2  style="color:#FDFEFE">Filtrer par</h2>
+    </div>
+    <ul id="menu-accordeon">
+       <li><a href="http://arfang.sn:8000/art_cat/">Catégories</a>
+          <ul>
+             <li><a href="http://arfang.sn:8000/art_cat/"> Tissus </a></li>
+             <li><a href="http://arfang.sn:8000/art_cat/"> Model </a></li>
+             
+          </ul>
+       </li>
+        <li><a href="montre.html">Tissus</a>
+          <ul>
+             <li><a href="#">Mbasin</a></li>
+             <li><a href="#">Soi</a></li>
+             <li><a href="#">Djezner</a></li>
+             <li><a href="#">Brodé</a></li>
+             <li><a href="#">Voile</a></li>
+             
+          </ul>
+       </li>
+       <li><a href="#">Prix</a>
+          <ul>
+             <li><a href="#">0,00 € - 29,99 € </a></li>
+             <li><a href="#">30,00 € - 59,99 €</a></li>
+             <li><a href="#">60,00 € - 89,99 €</a></li>
+             <li><a href="#">90,00 € - 119,99 €</a></li>
+             <li><a href="#">120,00 € - 149,99 €</a></li>
+             <li><a href="#">150,00 € et plus</a></li>
+          </ul>
+       </li>
+        <li><a href="photocopieuse.html">Models</a>
+          <ul>
+             <li><a href="#">Robe</a></li>
+             <li><a href="#">Rode de soirée</a></li>
+             <li><a href="#">Taille Basse</a></li>
+             <li><a href="#">Couple</a></li>
+             <li><a href="#">Taille Gabonaise</a></li>
+             <li><a href="#">Homme</a></li>
+             
+          </ul>
+       </li>
+               
+       
+    </ul>
+
+{% endif %}
+{% endblock %}

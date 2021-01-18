@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+{% block title%} Liste des Articles{% endblock %}
+{% block body %}
+
+
+
+{% if articles %}
+<table id="articles" class="table table-striped">
+<thead>
+<tr>
+<th>Article</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Produits</td>
+<td>
+<a href="http://arfang.sn:8000/produits" class="btn btn-dark">Détails</a>
+</td>
+</tr>
+
+<tr>
+<td>Clients</td>
+<td>
+<a href="http://arfang.sn:8000/Client" class="btn btn-dark">Détails</a>
+</td>
+</tr>
+
+<tr>
+<td>Commande</td>
+<td>
+<a href="http://arfang.sn:8000/Commande" class="btn btn-dark">Détails</a>
+</td>
+</tr>
+
+</tbody>
+</table>
+{% else %}
+<p>Aucun articles</p>
+{% endif %}
+{% endblock %}
